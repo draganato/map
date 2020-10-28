@@ -28,29 +28,23 @@ function getAnaliza(){
             let row = document.getElementById('tacka').insertRow(2);
             row.insertCell(0).innerHTML=koordinate[0][0];
             row.insertCell(1).innerHTML=koordinate[0][1];
-            
-
         }
         else{
             let row = document.getElementById('poligon').insertRow(koordinate.length);
             row.insertCell(0).innerHTML=koordinate[koordinate.length-1][0];
             row.insertCell(1).innerHTML=koordinate[koordinate.length-1][1];
         }
-   
-    
-
     })
   
    
     document.getElementById('provjera').onclick = function(){
-        let point = new ol.geom.Point(koordinate[0]);
+        //let point = new ol.geom.Point(koordinate[0]);
         koordinate.push(koordinate[1]);
         let lin_ring = koordinate.slice(1);
         
         let polygon = new ol.geom.Polygon([lin_ring]);
 
         uslov = polygon.intersectsCoordinate(koordinate[0]);
-        
         
         let poli="";
         for (i=0; i<lin_ring.length-1; i++){
@@ -59,7 +53,7 @@ function getAnaliza(){
         poli+="["+lin_ring[lin_ring.length-1]+"]";
     
     
-        if(koordinate.length>4){
+        if(koordinate.length>4){  // u koordinatama se nalazi tacka i tjemena poligona koji mora imati minimalno 4 tjemena jer se prvo i zadnje tjeme poklapaju
                 var row = document.getElementById("rezultat").insertRow(1);
                 row.insertCell(0).innerHTML = uslov;
                 row.insertCell(1).innerHTML ="["+ koordinate[0]+"]";
@@ -67,17 +61,12 @@ function getAnaliza(){
             }
         
 
-
         koordinate=[];
         document.getElementById("tacka").deleteRow(2);
         for(i=0; i<lin_ring.length-1; i++ ){
             document.getElementById("poligon").deleteRow(2);
         }
-
     }
-
-
-
 }
 
 
