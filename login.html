@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validated Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container"> 
+        <h1 class="label">User login</h1>
+        <form class="login_form" action="./OpenLayer_map/index.html" method="post" name="form" onsubmit="return validated()">
+            <div class="font">Username:</div>
+            <input  type="text" placeholder="Enter username" name="uname">
+            
+            <div class="font font2">Password:</div>
+            <input type="password" placeholder="Enter password" name="psw">
+            
+            <button type="submit" id='dugme'>Login</button>
+
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
